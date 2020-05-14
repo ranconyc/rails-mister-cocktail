@@ -1,9 +1,16 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://cf.ltkcdn.net/cocktails/images/orig/251453-2121x1414-non-alcoholic-cocktails.jpg);">
+  <div class="container">
+    <h1>It's always 5 o'clock somewhere</h1>
+  </div>
+</div>
+<div class="container mt-3">
 <h1>Your Cocktails</h1>
-<ul>
+<div class="cards">
 <% @cocktails.each do |cocktail| %>
-<li>
-<%= link_to cocktail.name, cocktail_path(cocktail) %>
-</li>
+<div class="card-category" style="background-image:<%= cl_image_tag cocktail.photo.key%>">
+   <%= link_to cocktail.name, cocktail_path(cocktail) %>
+</div>
 <% end %>
-</ul>
-<%= link_to 'New Cocktail', new_cocktail_path %>
+</div>
+</div>
+
