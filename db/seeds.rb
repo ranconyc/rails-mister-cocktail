@@ -9,7 +9,7 @@ ingredient = JSON.parse(html_file)
 ingredient['drinks'].each do |object|
   Ingredient.create(name: object['strIngredient1'])
   end
-puts "finish api"
+puts "read api"
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Ingredient.create(name: "lemon")
