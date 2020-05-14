@@ -2,6 +2,8 @@
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
 # Examples:
+require 'open-uri'
+require 'json'
 
 url = "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
 html_file = open(url).read
