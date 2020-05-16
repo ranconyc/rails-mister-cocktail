@@ -1,16 +1,22 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://cf.ltkcdn.net/cocktails/images/orig/251453-2121x1414-non-alcoholic-cocktails.jpg);">
-  <div class="container">
-    <h1>It's always 5 o'clock somewhere</h1>
-  </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-xl-8 offset-sm-2 offset-xl-2 ">
+        <h1>It's <%= Time.now.hour %>:<%= Time.now.min %> rigth now,</br> But it's always 5 o'clock somewhere</h1>
+      </div>
+    </div>
 </div>
-<div class="container mt-3">
-<h1>Your Cocktails</h1>
-<div class="cards">
-<% @cocktails.each do |cocktail| %>
-<div class="card-category" style="background-image:<%= cl_image_tag cocktail.photo.key%>">
-   <%= link_to cocktail.name, cocktail_path(cocktail) %>
-</div>
-<% end %>
-</div>
-</div>
+  <div class="container mt-5">
+    <h1><strong>Your Cocktails</strong></h1>
+    <div class="row">
+      <% @cocktails.each do |cocktail| %>
+        <%= link_to cocktail_path(cocktail), class: 'cocktail-card col-xs-12 col-sm-4 col-xl-3' do %>
+          <%= cl_image_tag cocktail.photo.key, height: 300, width: 200 %>
+          <div class="card-bottom">
+              <p> <%= cocktail.name.capitalize %> </p>
+          </div>
+        <% end %>
+      <% end %>
+      </div>
+    </div>
+
 

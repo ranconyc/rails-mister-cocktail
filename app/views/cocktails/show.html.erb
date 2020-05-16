@@ -1,12 +1,22 @@
-<h1><%= @cocktail.name %></h1>
-<%= cl_image_tag @cocktail.photo.key, height: 300, width: 200, crop: :fill %>
-<ul>
-  <% @cocktail.doses.each do |dose|  %>
-    <li>
-      <%= dose.ingredient.name %> : <%= dose.description %> <%= link_to "remove", dose, method: :delete, data: { confirm: 'Are you sure?' } %>
-    </li>
-  <% end %>
-</ul>
-<%= link_to 'Add a new dose', new_cocktail_dose_path(@cocktail), class: "btn btn-primary mb-3" %> </br>
-
+<div class="container">
+  <div class="bg-white mt-3 cocktail-card-s">
+    <div class="cocktail-img">
+      <%= cl_image_tag @cocktail.photo.key %>
+    </div>
+    <div class="doses">
+      <h1><%= @cocktail.name.capitalize %></h1>
+      <h2>Prep Time</h2>
+      <p><%= @cocktail.time %> Minutes</p>
+      <ul>
+        <h2>Ingredients</h2>
+        <% @cocktail.doses.each do |dose|  %>
+          <li>
+            <%= dose.description.capitalize %> : <%= dose.ingredient.name.capitalize %> <%= link_to "Remove", dose, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </li>
+        <% end %>
+      </ul>
+      <%= link_to 'Add a new dose', new_cocktail_dose_path(@cocktail), class: 'btn-link' %> </br>
+    </div>
+  </div>
+</div>
 
